@@ -4,6 +4,8 @@ Shader "URPBasic"
 	Properties
 	{
 		// Properties Block : 셰이더에서 사용할 변수를 선언하고 이를 material inspector에 노출시킵니다
+		_TintColor("Tint Color", Color) = (1,1,1,1)
+		_Intensity("Intensity", Range(0, 1)) = 0.5
 	}
 	SubShader
 	{
@@ -27,6 +29,9 @@ Shader "URPBasic"
 			
 			//cg shader는 .cginc를 hlsl shader는 .hlsl을 include하게 됩니다.
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+
+			float4 _TintColor;
+			float _Intensity;
 			
 			//vertex buffer에서 읽어올 정보를 선언합니다.
 			struct VertexInput
@@ -51,7 +56,8 @@ Shader "URPBasic"
 			//픽셀 셰이더
 			half4 frag(VertexOutput i) : SV_Target
 			{
-				return half4(1, 1, 1, 1);
+				float4 color = _TintColor * _Intensity; 
+				return color;
 			}
 			
 			ENDHLSL
