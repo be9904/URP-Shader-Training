@@ -20,8 +20,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Flowmap:
+        m_Texture: {fileID: 2800000, guid: 350a31c0ee7e608499da7da46f20ac64, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4bff734e0da59bf47bdbfee4af0037ae, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1c27d010bd9e72f49bda89339775af0c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex02:
@@ -33,6 +37,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _FlowIntensity: 1
+    - _FlowTime: 1.5
+    - _Intensity: 0.5
+    m_Colors:
+    - _TintColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

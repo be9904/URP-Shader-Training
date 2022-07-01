@@ -4,6 +4,9 @@ Shader "Training03-1"
 		_TintColor("Test Color", color) = (1, 1, 1, 1)
 		_Intensity("Range Sample", Range(0, 1)) = 0.5
 		_MainTex("Main Texture", 2D) = "white" {}
+		[NoScaleOffset] _Flowmap("Flowmap", 2D) = "white" {} // Inspector에서 tiling offset 보이지 않음
+		_FlowIntensity("flow Intensity", Range(0,2)) = 1
+		_FlowTime("flow time", Range(0,10)) = 1 
 	}
 	SubShader{
 		Tags
