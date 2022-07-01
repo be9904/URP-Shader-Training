@@ -34,33 +34,33 @@ Shader"URPBasic"
 			float4 _TintColor;
 			float _Intensity;
 			sampler2D _MainTex;
-			float4 _MainTex_ST;
+			float4 _MainTex_ST; // convention이기 때문에 반드시 지켜야됨
 			
 			//vertex buffer에서 읽어올 정보를 선언합니다.
-			struct VertexInput
+			struct MeshData
 			{
 				float4 vertex : POSITION;
 				float2 uv : TEXCOORD0;
 			};
 
 			//보간기를 통해 버텍스 셰이더에서 픽셀 셰이더로 전달할 정보를 선언합니다.
-			struct VertexOutput
+			struct Interpolator
 			{
 				float4 vertex : SV_POSITION;
 				float2 uv : TEXCOORD0;
 			};
 
 			//버텍스 셰이더
-			VertexOutput vert(VertexInput v)
+			Interpolator vert(MeshData v)
 			{
-				VertexOutput o;
+				Interpolator o;
 				o.vertex = TransformObjectToHClip(v.vertex.xyz);
 				o.uv = v.uv;
 				return o;
 			}
 			
 			//픽셀 셰이더
-			half4 frag(VertexOutput i) : SV_Target
+			half4 frag(Interpolator i) : SV_Target
 			{
 				float2 uv = i.uv.xy * _MainTex_ST.xy + _MainTex_ST.zw; // scale은 곱하고 offset은 더함
 				float4 color = tex2D(_MainTex, uv) * _TintColor * _Intensity;
