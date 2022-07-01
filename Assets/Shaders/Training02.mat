@@ -33,10 +33,10 @@ Material:
     - _AlphaCut: 0
     - _Cull: 2
     - _CullMode: 2
-    - _DstBlend: 10
-    - _Intensity: 1.7
+    - _DstBlend: 1
+    - _Intensity: 10
     - _SrcBlend: 1
-    - _ZTest: 5
+    - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}
