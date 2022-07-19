@@ -9,12 +9,14 @@ SamplerState sampler_MainTex;
 struct VertexInput
 {
     float4 vertex : POSITION;
+    float3 normal : NORMAL;
     float2 uv : TEXCOORD0;
 };
 
 struct VertexOutput
 {
     float4 vertex : SV_POSITION;
+    float3 normal : NORMAL;
     float2 uv : TEXCOORD0;
 };
 
@@ -22,6 +24,8 @@ VertexOutput vert(VertexInput v)
 {
     VertexOutput o;
     o.vertex = TransformObjectToHClip(v.vertex.xyz);
+
+    o.normal = TransformObjectToWorldNormal(v.normal);
 
     o.uv = v.uv.xy * _MainTex_ST.xy + _MainTex_ST.zw;
     
