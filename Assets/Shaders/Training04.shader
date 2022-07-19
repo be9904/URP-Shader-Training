@@ -2,6 +2,9 @@ Shader "Training04"
 {
     Properties
     {
+        _RimPower("Rim Power", Range(0.01, 0.1)) = 0.1
+        _RimInten("Rim Intensity", Range(0.01, 100)) = 1
+        [HDR]_RimColor("Rim Color", color) = (1,1,1,1)
     }
     SubShader
     {
