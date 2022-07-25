@@ -22,7 +22,7 @@ Shader "Mask"
 				Comp Always
 				Pass Replace
 				Fail Keep
-				ZFail Replace
+				ZFail Keep
 			}
 		}
 	}
